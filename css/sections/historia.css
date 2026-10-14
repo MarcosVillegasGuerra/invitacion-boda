@@ -144,47 +144,49 @@
   #historia {
     height: 100svh;
     overflow-y: auto;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 0.7rem 1rem;
   }
 
+  #historia .section-inner { margin-block: auto; }
+
   #historia .label {
-    margin-bottom: 0.3rem;
-    font-size: 0.58rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.62rem;
     letter-spacing: 0.17em;
   }
 
   #historia .title {
-    margin-bottom: 0.35rem;
-    font-size: 1.3rem;
+    margin-bottom: 0.45rem;
+    font-size: clamp(1.45rem, 6.2vw, 1.65rem);
     line-height: 1.1;
   }
 
   #historia .divider {
-    width: 38px;
-    margin: 0.35rem auto;
+    width: 42px;
+    margin: 0.45rem auto;
   }
 
   #historia .timeline {
-    margin-top: 0.35rem;
+    margin-top: 0.55rem;
   }
 
   #historia .timeline::before {
-    left: 17px;
-    top: 18px;
-    bottom: 18px;
+    left: 19px;
+    top: 20px;
+    bottom: 20px;
   }
 
   #historia .timeline-item {
-    gap: 0.55rem;
-    margin-bottom: 0.55rem;
+    gap: 0.65rem;
+    margin-bottom: 0.7rem;
   }
 
   #historia .timeline-dot {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-width: 1.5px;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   #historia .timeline-body {
@@ -192,19 +194,19 @@
   }
 
   #historia .timeline-year {
-    font-size: 0.78rem;
+    font-size: 0.98rem;
     line-height: 1.1;
   }
 
   #historia .timeline-title {
-    margin: 0.08rem 0;
-    font-size: 0.8rem;
-    line-height: 1.15;
+    margin: 0.12rem 0;
+    font-size: 0.98rem;
+    line-height: 1.2;
   }
 
   #historia .timeline-desc {
-    font-size: 0.68rem;
-    line-height: 1.3;
+    font-size: 0.84rem;
+    line-height: 1.4;
   }
 
   #historia::before,
