@@ -1,9 +1,10 @@
-/* Music control — appears after the envelope has been opened. */
+/* Music control — available from the first screen. */
 .music-toggle {
   position: fixed;
   z-index: 500;
   top: max(1rem, env(safe-area-inset-top));
   right: max(1rem, env(safe-area-inset-right));
+  left: auto;
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
@@ -18,8 +19,8 @@
   color: var(--c-sage-dark);
   box-shadow: 0 5px 18px rgba(45,52,44,.16), inset 0 0 0 3px rgba(255,255,255,.45);
   cursor: pointer;
-  opacity: 0;
-  transform: translateY(-8px) scale(.88);
+  opacity: 1;
+  transform: none;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: opacity .45s ease, transform .45s ease, background .25s ease;
@@ -89,6 +90,7 @@
   .music-toggle {
     top: max(.65rem, env(safe-area-inset-top));
     right: max(.65rem, env(safe-area-inset-right));
+    left: auto;
     width: 39px;
     height: 39px;
   }

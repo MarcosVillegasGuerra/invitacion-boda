@@ -9,7 +9,9 @@
 
   function resetScrollPosition() {
     document.documentElement.scrollTop = 0;
+    document.documentElement.scrollLeft = 0;
     document.body.scrollTop = 0;
+    document.body.scrollLeft = 0;
 
     if (content) {
       content.querySelectorAll('section').forEach(function resetSection(section) {
@@ -22,6 +24,7 @@
   window.addEventListener('pageshow', resetScrollPosition);
 
   if (!intro || !button) {
+    document.documentElement.classList.remove('invitation-locked');
     document.body.classList.remove('invitation-locked');
     if (content) content.removeAttribute('inert');
     return;
@@ -39,11 +42,13 @@
     window.setTimeout(function revealInvitation() {
       resetScrollPosition();
       intro.classList.add('is-opened');
-      document.body.classList.remove('invitation-locked');
-      if (content) content.removeAttribute('inert');
 
       window.setTimeout(function removeIntro() {
         intro.hidden = true;
+        document.documentElement.classList.remove('invitation-locked');
+        document.body.classList.remove('invitation-locked');
+        if (content) content.removeAttribute('inert');
+
         var heading = document.getElementById('hero-heading');
         if (heading) {
           heading.setAttribute('tabindex', '-1');

@@ -155,12 +155,26 @@
 .wishlist-flourish span:last-child { transform: scaleX(-1); }
 
 .wishlist-thanks {
+  position: relative;
+  isolation: isolate;
   max-width: 520px;
   margin: 0 auto clamp(.8rem, 2.3svh, 1.25rem);
+  padding: .3rem 0;
   color: rgba(255,253,248,.88);
   font-family: var(--f-serif);
   font-size: clamp(.8rem, 3.2vw, 1rem);
   line-height: 1.55;
+  text-shadow: 0 1px 3px rgba(25,37,28,.55);
+}
+
+.wishlist-thanks::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -2.75rem -4rem;
+  background: radial-gradient(ellipse, rgba(113,130,111,.68) 0%, rgba(113,130,111,.48) 48%, rgba(113,130,111,.2) 78%, transparent 100%);
+  filter: blur(12px);
+  pointer-events: none;
 }
 
 .wishlist-account {

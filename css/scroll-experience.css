@@ -1,0 +1,113 @@
+html[data-scroll-experience="free"] {
+  scroll-snap-type: none;
+}
+
+html[data-scroll-experience="free"] body .music-toggle:not([hidden]) {
+  position: fixed !important;
+  z-index: 10000;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: auto;
+  left: auto !important;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section {
+  height: auto;
+  min-height: 100svh;
+  overflow: visible;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, var(--section-offset, 18px), 0);
+  transition:
+    opacity .65s cubic-bezier(.22,.72,.24,1),
+    transform .65s cubic-bezier(.22,.72,.24,1),
+    visibility 0s linear .65s;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section[data-scroll-direction="up"] {
+  --section-offset: -18px;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section.is-in-view {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#regalos {
+  transition:
+    opacity 1s cubic-bezier(.22,.72,.24,1),
+    transform 1s cubic-bezier(.22,.72,.24,1),
+    visibility 0s linear 1s;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#regalos.is-in-view {
+  transition-delay: 0s;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#galeria,
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#regalos {
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#historia,
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#rsvp,
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#cierre {
+  overflow: visible;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#dresscode {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .reveal {
+  opacity: 0;
+  transform: none;
+  transition: opacity .6s cubic-bezier(.22,.72,.24,1);
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .reveal[data-delay] {
+  transition-delay: 0s;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .reveal.is-visible {
+  opacity: 1;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .scroll-card {
+  opacity: 0;
+  transform: translate3d(0, var(--card-offset, 24px), 0);
+  transition:
+    opacity .65s cubic-bezier(.22,.72,.24,1),
+    transform .65s cubic-bezier(.22,.72,.24,1);
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .scroll-card[data-scroll-direction="up"] {
+  --card-offset: -24px;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .scroll-card.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-initializing > section,
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-initializing .reveal,
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-initializing .scroll-card {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section,
+  html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .reveal,
+  html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .scroll-card {
+    transition: none;
+    transform: none;
+  }
+}

@@ -19,9 +19,7 @@
 
   function showControl() {
     toggle.hidden = false;
-    window.requestAnimationFrame(function revealControl() {
-      toggle.classList.add('is-visible');
-    });
+    toggle.classList.add('is-visible');
   }
 
   function cancelFade() {

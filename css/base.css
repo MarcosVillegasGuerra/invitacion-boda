@@ -20,6 +20,8 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+html.invitation-locked { overflow: hidden; }
+
 html::-webkit-scrollbar { display: none; }
 
 body {
@@ -29,6 +31,11 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   overscroll-behavior-y: none;
+}
+
+@media (max-width: 767px) {
+  html { overflow-x: clip; }
+  body:not(.invitation-locked) { overflow-x: clip; }
 }
 
 img {
