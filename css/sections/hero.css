@@ -133,6 +133,10 @@
   animation: hero-names-in 1s .38s cubic-bezier(.2,.8,.2,1) both;
 }
 
+#hero-heading:focus {
+  outline: none;
+}
+
 .hero-names > span:first-child { transform: translateX(-.08em); }
 .hero-names > span:last-child { transform: translateX(.02em); }
 
