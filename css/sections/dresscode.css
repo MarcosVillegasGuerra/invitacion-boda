@@ -1,0 +1,239 @@
+#dresscode {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(232, 213, 176, 0.22), transparent 34%),
+    radial-gradient(circle at 95% 82%, rgba(138, 158, 133, 0.12), transparent 38%),
+    var(--c-cream);
+  text-align: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+}
+
+#dresscode::before,
+#dresscode::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: clamp(210px, 27vw, 320px);
+  height: clamp(190px, 25vw, 290px);
+  background: url('../../assets/images/dresscode-floral-corner.webp') center / contain no-repeat;
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+#dresscode::before {
+  top: -1rem;
+  left: -1.75rem;
+}
+
+#dresscode::after {
+  top: -1rem;
+  right: -1.75rem;
+  transform: scaleX(-1);
+}
+
+#dresscode .section-inner {
+  max-width: 800px;
+  margin-block: auto;
+  position: relative;
+  z-index: 1;
+}
+
+#dresscode .label { margin-bottom: 0.45rem; }
+
+#dresscode .title {
+  margin-bottom: 0.55rem;
+  color: var(--c-sage-dark);
+  font-size: clamp(1.65rem, 5vw, 2.2rem);
+}
+
+#dresscode .divider { margin: 0.5rem auto; }
+
+.dresscode-editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: clamp(0.65rem, 2vw, 1.25rem);
+  margin: 0.8rem auto 0;
+  text-align: left;
+}
+
+.dresscode-visual {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  min-height: 330px;
+}
+
+.dresscode-visual img {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.dresscode-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(0.65rem, 1.8vw, 1.25rem);
+}
+
+.dresscode-eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--c-gold);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.dresscode-code {
+  color: var(--c-sage-dark);
+  font-family: var(--f-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.dresscode-intro {
+  max-width: 48ch;
+  margin-top: 0.65rem;
+  color: var(--c-dark-soft);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.dresscode-guidance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--c-gold-light);
+}
+
+.dresscode-guidance p {
+  color: var(--c-dark-soft);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.dresscode-guidance p + p {
+  padding-left: 0.8rem;
+  border-left: 1px solid rgba(201, 169, 110, 0.45);
+}
+
+.dresscode-guidance strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--c-dark);
+  font-family: var(--f-serif);
+  font-size: 0.87rem;
+  font-weight: 400;
+}
+
+.dresscode-note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.85rem auto 0;
+  padding: 0.65rem 0.25rem;
+  border-top: 1px solid rgba(201, 169, 110, 0.5);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.5);
+  background: transparent;
+  text-align: left;
+}
+
+.dresscode-swatches {
+  display: flex;
+  padding-left: 0.2rem;
+}
+
+.dresscode-swatches span {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-left: -0.2rem;
+  border: 1px solid rgba(151, 138, 113, 0.42);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.dresscode-swatches span:nth-child(2) { background: #fbf8ed; }
+.dresscode-swatches span:nth-child(3) { background: #f3edde; }
+.dresscode-swatches span:nth-child(4) { background: #eae1ce; }
+
+.dresscode-note-title {
+  margin-bottom: 0.2rem;
+  color: var(--c-sage-dark);
+  font-family: var(--f-serif);
+  font-size: 0.88rem;
+}
+
+.dresscode-note p:last-child {
+  color: var(--c-dark-soft);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 639px) {
+  #dresscode::before,
+  #dresscode::after {
+    width: clamp(150px, 37vw, 195px);
+    height: clamp(137px, 34vw, 178px);
+    opacity: 0.78;
+  }
+
+  #dresscode::before { top: -0.75rem; left: -1.5rem; }
+  #dresscode::after { top: -0.75rem; right: -1.5rem; }
+
+  .dresscode-editorial {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    margin-top: 0.55rem;
+  }
+
+  .dresscode-visual {
+    height: clamp(205px, calc(100svh - 520px), 420px);
+    min-height: 0;
+  }
+
+  .dresscode-visual img { max-height: none; }
+
+  .dresscode-details {
+    padding: clamp(0.35rem, 1svh, 0.65rem) 0.3rem 0;
+  }
+
+  .dresscode-code { font-size: clamp(1.5rem, 3svh, 1.85rem); }
+
+  .dresscode-intro {
+    margin-top: 0.45rem;
+    font-size: clamp(0.76rem, 1.4svh, 0.83rem);
+  }
+
+  .dresscode-guidance {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+  }
+
+  .dresscode-guidance p { font-size: clamp(0.7rem, 1.3svh, 0.76rem); }
+
+  .dresscode-note { gap: 0.65rem; padding: 0.65rem 0.2rem; }
+
+  .dresscode-note p:last-child { font-size: clamp(0.7rem, 1.3svh, 0.76rem); }
+}
+
+@media (max-width: 639px) and (max-height: 620px) {
+  #dresscode::before,
+  #dresscode::after { opacity: 0.62; }
+}
+
+@media (max-width: 359px) {
+  .dresscode-guidance { gap: 0.5rem; }
+  .dresscode-guidance p { font-size: 0.7rem; }
+  .dresscode-guidance p + p { padding-left: 0.5rem; }
+  .dresscode-note { grid-template-columns: 1fr; gap: 0.45rem; }
+}

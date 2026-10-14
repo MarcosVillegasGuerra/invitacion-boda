@@ -1,0 +1,194 @@
+#galeria {
+  padding: .65rem .45rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(201,169,110,.12), transparent 24%),
+    radial-gradient(circle at 90% 90%, rgba(138,158,133,.12), transparent 25%),
+    #f7f3eb;
+  text-align: center;
+}
+
+#galeria .gallery-shell {
+  display: flex;
+  width: 100%;
+  max-width: 1180px;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.gallery-header {
+  flex: 0 0 auto;
+  padding: .1rem .5rem 0;
+}
+
+.gallery-header .label {
+  margin-bottom: .15rem;
+  text-align: center;
+}
+
+.gallery-header .title {
+  margin-bottom: .12rem;
+  color: var(--c-sage-dark);
+  font-size: clamp(1.5rem, 6vw, 2.35rem);
+  line-height: 1.05;
+  text-align: center;
+}
+
+.gallery-hint {
+  color: rgba(74,74,74,.68);
+  font-size: clamp(.52rem, 2.1vw, .68rem);
+  letter-spacing: .06em;
+}
+
+.gallery-grid {
+  display: grid;
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  grid-template-areas:
+    "a a b c"
+    "a a b d"
+    "e e f g"
+    "h i f j"
+    "h k l m"
+    "n n o p"
+    "q r s s"
+    "t u v v";
+  gap: 3px;
+  margin-top: .45rem;
+}
+
+.gallery-item {
+  position: relative;
+  grid-area: var(--gallery-area);
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 7px;
+  background: #e8e2d7;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.45);
+  cursor: zoom-in;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gallery-item:nth-child(5n + 1) { border-radius: 13px 5px 10px 6px; }
+.gallery-item:nth-child(5n + 2) { border-radius: 5px 12px 6px 10px; }
+.gallery-item:nth-child(5n + 3) { border-radius: 10px 5px 13px 5px; }
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 650ms ease, transform 220ms cubic-bezier(.22,.72,.24,1), filter 220ms ease;
+}
+
+#galeria.gallery-enhanced .gallery-item img { opacity: 0; }
+#galeria.gallery-enhanced .gallery-item img.is-loaded { opacity: 1; }
+
+.gallery-item:last-child img { object-position: center 43%; }
+
+.gallery-item.is-lightbox-source img { visibility: hidden; }
+
+.gallery-item:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--c-gold);
+  outline-offset: -2px;
+}
+
+.gallery-item:active img { transform: scale(.97); }
+
+.gallery-lightbox {
+  position: absolute;
+  z-index: 40;
+  inset: 0;
+  visibility: hidden;
+  pointer-events: none;
+  cursor: zoom-out;
+}
+
+.gallery-lightbox::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(25,31,25,.92);
+  opacity: 0;
+  backdrop-filter: blur(8px);
+  content: '';
+  transition: opacity 500ms ease;
+}
+
+.gallery-lightbox.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.gallery-lightbox.is-open::before { opacity: 1; }
+.gallery-lightbox.is-open.is-closing::before { opacity: 0; }
+
+.gallery-lightbox img {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: clamp(10px, 3vw, 18px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.42);
+  object-fit: cover;
+  object-position: center;
+  transition:
+    left 500ms cubic-bezier(.22,.72,.24,1),
+    top 500ms cubic-bezier(.22,.72,.24,1),
+    width 500ms cubic-bezier(.22,.72,.24,1),
+    height 500ms cubic-bezier(.22,.72,.24,1),
+    border-radius 500ms ease,
+    box-shadow 500ms ease;
+}
+
+.gallery-lightbox.is-closing img { box-shadow: none; }
+
+.gallery-lightbox-hint {
+  position: absolute;
+  right: 0;
+  bottom: max(.65rem, env(safe-area-inset-bottom));
+  left: 0;
+  color: rgba(255,255,255,.72);
+  font-size: .62rem;
+  letter-spacing: .08em;
+  text-align: center;
+  transition: opacity 150ms ease;
+}
+
+.gallery-lightbox.is-closing .gallery-lightbox-hint { opacity: 0; }
+
+@media (min-width: 700px) {
+  #galeria { padding: .8rem 1rem; }
+
+  .gallery-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "a a e h h n q t"
+      "a a e i k n r u"
+      "b b f f l o s v"
+      "c d g j m p s w";
+    gap: 5px;
+    margin-top: .65rem;
+  }
+}
+
+@media (hover: hover) {
+  .gallery-item:hover img {
+    filter: saturate(1.06) brightness(1.03);
+    transform: scale(1.055);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item img,
+  .gallery-lightbox,
+  .gallery-lightbox img { transition: none; }
+}

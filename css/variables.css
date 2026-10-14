@@ -1,0 +1,32 @@
+:root {
+  /* Colors */
+  --c-cream:      #FAF7F2;
+  --c-gold:       #C9A96E;
+  --c-gold-light: #E8D5B0;
+  --c-sage:       #8A9E85;
+  --c-sage-dark:  #6B7D67;
+  --c-dark:       #2C2C2C;
+  --c-dark-soft:  #4A4A4A;
+  --c-white:      #FFFFFF;
+
+  /* Typography */
+  --f-serif: 'Playfair Display', Georgia, serif;
+  --f-sans:  'Lato', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 1.5rem;
+  --sp-lg: 2.5rem;
+  --sp-xl: 4rem;
+
+  /* Layout */
+  --max-w:     480px;
+  --radius:    8px;
+  --radius-lg: 16px;
+
+  /* Effects */
+  --transition:  300ms ease;
+  --shadow:      0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-gold: 0 4px 20px rgba(201, 169, 110, 0.3);
+}

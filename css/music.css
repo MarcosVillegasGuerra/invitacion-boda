@@ -1,0 +1,100 @@
+/* Music control — appears after the envelope has been opened. */
+.music-toggle {
+  position: fixed;
+  z-index: 500;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(201,169,110,.72);
+  border-radius: 50%;
+  background: rgba(250,247,242,.9);
+  color: var(--c-sage-dark);
+  box-shadow: 0 5px 18px rgba(45,52,44,.16), inset 0 0 0 3px rgba(255,255,255,.45);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-8px) scale(.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity .45s ease, transform .45s ease, background .25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.music-toggle[hidden] { display: none; }
+
+.music-toggle.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.music-toggle:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 3px;
+}
+
+.music-toggle:active { transform: scale(.94); }
+
+.music-note {
+  font-family: Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.music-levels {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  width: 9px;
+  height: 14px;
+}
+
+.music-levels i {
+  display: block;
+  width: 2px;
+  height: 35%;
+  border-radius: 2px;
+  background: var(--c-gold);
+  transform-origin: bottom;
+}
+
+.music-toggle.is-playing .music-levels i {
+  animation: music-level 1s ease-in-out infinite alternate;
+}
+
+.music-toggle.is-playing .music-levels i:nth-child(2) { animation-delay: -.45s; }
+.music-toggle.is-playing .music-levels i:nth-child(3) { animation-delay: -.72s; }
+
+.music-toggle:not(.is-playing) {
+  background: rgba(240,237,230,.88);
+}
+
+.music-toggle:not(.is-playing) .music-levels i {
+  height: 2px;
+  opacity: .65;
+}
+
+@keyframes music-level {
+  from { height: 24%; }
+  to { height: 100%; }
+}
+
+@media (max-height: 620px) {
+  .music-toggle {
+    top: max(.65rem, env(safe-area-inset-top));
+    right: max(.65rem, env(safe-area-inset-right));
+    width: 39px;
+    height: 39px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-toggle,
+  .music-levels i { transition: none; animation: none !important; }
+}

@@ -1,0 +1,173 @@
+/* =========================================
+   Reset
+========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================
+   Global
+========================================= */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Snap container: one section at a time, always stops at a snap point */
+  scroll-snap-type: y mandatory;
+}
+
+html::-webkit-scrollbar { display: none; }
+
+body {
+  font-family: var(--f-sans);
+  background-color: var(--c-cream);
+  color: var(--c-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+address { font-style: normal; }
+
+/* =========================================
+   Section layout
+========================================= */
+section {
+  /*
+   * height: 100svh  → section never exceeds the viewport.
+   * overflow-y: auto → content taller than the screen scrolls INSIDE
+   *                    the section; the outer snap still moves between
+   *                    sections once the inner scroll reaches its boundary.
+   * scrollbar-width: none → hides internal scrollbar (cosmetic).
+   */
+  height: 100svh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 4svh, 4rem) var(--sp-md);
+  position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+section::-webkit-scrollbar { display: none; }
+
+.section-inner {
+  width: 100%;
+  max-width: var(--max-w);
+}
+
+/* =========================================
+   Typography helpers
+========================================= */
+.label {
+  font-family: var(--f-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: var(--sp-sm);
+}
+
+.title {
+  font-family: var(--f-serif);
+  font-size: clamp(1.9rem, 7.5vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: var(--sp-md);
+}
+
+.divider {
+  width: 56px;
+  height: 1px;
+  background: var(--c-gold);
+  margin: var(--sp-md) auto;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 50px;
+  font-family: var(--f-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active { transform: scale(0.96); }
+
+.btn:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 3px;
+}
+
+.btn-gold {
+  background: var(--c-gold);
+  color: var(--c-white);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 6px 26px rgba(201, 169, 110, 0.45);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--c-white);
+  border: 2px solid rgba(255, 255, 255, 0.65);
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================
+   Accessibility — screen reader only
+========================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================
+   Responsive — desktop wrapper
+========================================= */
+@media (min-width: 768px) {
+  body { background: #111; }
+
+  section { padding: var(--sp-xl) var(--sp-lg); }
+}

@@ -1,0 +1,153 @@
+/* =========================================
+   Compact layout for short mobile screens
+   Keeps every section within one viewport without
+   changing the full-screen navigation model.
+========================================= */
+@media (max-width: 767px) and (max-height: 740px) {
+  section {
+    padding: 0.9rem 1rem;
+  }
+
+  .label {
+    margin-bottom: 0.45rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.17em;
+  }
+
+  .title {
+    margin-bottom: 0.55rem;
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+    line-height: 1.1;
+  }
+
+  .divider {
+    width: 42px;
+    margin: 0.55rem auto;
+  }
+
+  .btn {
+    padding: 0.68rem 1.25rem;
+    font-size: 0.68rem;
+  }
+
+  /* Countdown */
+  .cd-grid {
+    gap: 0.9rem 2rem;
+    margin-top: 0.9rem;
+  }
+
+  .cd-number-wrap { min-width: 4.5rem; }
+  .cd-number { font-size: clamp(2.35rem, 10vw, 3.2rem); }
+  .cd-item:nth-child(3),
+  .cd-item:nth-child(4) { padding-top: 0.5rem; }
+
+  /* Dress code */
+  #dresscode .title { font-size: 1.5rem; }
+  .dresscode-editorial { margin-top: 0.35rem; }
+  .dresscode-visual { height: 30svh; }
+  .dresscode-details { padding: 0.35rem 0.25rem 0; }
+  .dresscode-code { font-size: 1.4rem; }
+  .dresscode-intro { font-size: 0.72rem; line-height: 1.4; }
+  .dresscode-guidance { margin-top: 0.55rem; padding-top: 0.55rem; }
+  .dresscode-guidance p { font-size: 0.66rem; }
+  .dresscode-guidance strong { font-size: 0.82rem; }
+  .dresscode-note { margin-top: 0.5rem; padding: 0.55rem 0.2rem; }
+  .dresscode-note-title { font-size: 0.82rem; }
+  .dresscode-note p:last-child { font-size: 0.65rem; }
+
+  /* Gallery */
+  .gallery-grid {
+    gap: 2px;
+    margin-top: 0.3rem;
+  }
+
+  .gallery-header .title { font-size: 1.35rem; }
+  .gallery-hint { font-size: .5rem; }
+  .gallery-item img { height: 100%; }
+
+  /* RSVP */
+  .rsvp-deadline {
+    margin-bottom: 0.8rem;
+    font-size: 0.74rem;
+  }
+
+  #rsvp .rsvp-action { gap: 0.4rem; }
+  #rsvp .rsvp-action > p { font-size: 0.7rem; }
+
+  /* Gifts */
+  .regalos-note {
+    margin-bottom: 0.75rem;
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .regalos-grid { gap: 0.65rem; }
+
+  .regalo-card {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .regalo-icon { margin-bottom: 0.1rem; font-size: 1.45rem; }
+  .regalo-name { margin-bottom: 0.15rem; font-size: 0.95rem; }
+  .regalo-detail {
+    margin-bottom: 0.55rem;
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  /* Closing */
+  #cierre .title { font-size: 1.25rem; }
+  .cierre-heart { margin: 0.65rem 0; font-size: 1.55rem; }
+  .cierre-date { margin: 0.65rem 0; font-size: 1.8rem; }
+  .cierre-hashtag { font-size: 0.75rem; }
+  .cierre-footer { margin-top: 0.8rem; padding-top: 0.6rem; font-size: 0.66rem; }
+}
+
+/* Extra compression for very short screens. */
+@media (max-width: 767px) and (max-height: 620px) {
+  section { padding: 0.55rem 0.8rem; }
+
+  .label { margin-bottom: 0.25rem; font-size: 0.54rem; }
+  .title { margin-bottom: 0.3rem; font-size: 1.2rem; }
+  .divider { margin: 0.3rem auto; }
+  .btn { padding: 0.56rem 1rem; font-size: 0.62rem; }
+
+  .cd-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.35rem;
+    max-width: 100%;
+    margin-top: 0.55rem;
+  }
+
+  .cd-number-wrap { min-width: 0; }
+  .cd-number { font-size: clamp(1.65rem, 8vw, 2.2rem); }
+  .cd-label { font-size: 0.52rem; letter-spacing: 0.1em; }
+  .cd-item:nth-child(3),
+  .cd-item:nth-child(4) { padding-top: 0; border-top: 0; }
+
+  #dresscode .title { font-size: 1.35rem; }
+  .dresscode-editorial { margin-top: 0.2rem; }
+  .dresscode-visual { height: 25svh; }
+  .dresscode-details { padding: 0.2rem 0.2rem 0; }
+  .dresscode-eyebrow { margin-bottom: 0.2rem; }
+  .dresscode-code { font-size: 1.25rem; }
+  .dresscode-intro { margin-top: 0.3rem; font-size: 0.66rem; }
+  .dresscode-guidance { gap: 0.45rem; margin-top: 0.4rem; padding-top: 0.4rem; }
+  .dresscode-guidance p { font-size: 0.62rem; }
+  .dresscode-guidance strong { font-size: 0.76rem; }
+  .dresscode-note { margin-top: 0.3rem; padding: 0.4rem 0.15rem; }
+  .dresscode-note-title { font-size: 0.76rem; }
+  .dresscode-note p:last-child { font-size: 0.61rem; }
+
+  .gallery-grid { margin-top: 0.45rem; }
+  .gallery-item:first-child img { height: 110px; }
+  .gallery-item:not(:first-child) img { height: 62px; }
+
+  .regalos-note { margin-bottom: 0.45rem; font-size: 0.68rem; }
+  .regalos-grid { gap: 0.4rem; }
+  .regalo-card { padding: 0.5rem; }
+  .regalo-icon { font-size: 1.15rem; }
+  .regalo-name { font-size: 0.82rem; }
+  .regalo-detail { margin-bottom: 0.35rem; font-size: 0.63rem; }
+}

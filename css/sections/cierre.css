@@ -1,0 +1,74 @@
+#cierre {
+  background: linear-gradient(155deg, var(--c-cream) 40%, var(--c-gold-light) 100%);
+  text-align: center;
+  min-height: 70svh;
+  overflow: hidden auto;
+}
+
+#cierre .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cierre-floral {
+  position: absolute;
+  z-index: 0;
+  width: clamp(150px, 27vw, 320px);
+  aspect-ratio: 1314 / 1197;
+  background: url('../../assets/images/dresscode-floral-corner.webp') center / contain no-repeat;
+  opacity: .82;
+  pointer-events: none;
+}
+
+.cierre-floral--top-left { top: -1rem; left: -1.5rem; }
+.cierre-floral--top-right { top: -1rem; right: -1.5rem; transform: scaleX(-1); }
+.cierre-floral--bottom-left { bottom: -1rem; left: -1.5rem; transform: scaleY(-1); }
+.cierre-floral--bottom-right { bottom: -1rem; right: -1.5rem; transform: scale(-1); }
+
+@media (max-width: 639px) {
+  .cierre-floral {
+    width: clamp(125px, 38vw, 190px);
+    opacity: .72;
+  }
+}
+
+#cierre .title {
+  font-style: italic;
+  font-size: clamp(1.4rem, 5.5vw, 2rem);
+  color: var(--c-dark);
+}
+
+.cierre-date {
+  font-family: var(--f-serif);
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  color: var(--c-gold);
+  margin: var(--sp-md) 0;
+  letter-spacing: 0.08em;
+}
+
+.cierre-hashtag {
+  font-size: 0.95rem;
+  color: var(--c-sage);
+  letter-spacing: 0.1em;
+}
+
+.cierre-heart {
+  display: block;
+  font-size: 2rem;
+  color: var(--c-gold);
+  margin: var(--sp-md) 0;
+  animation: heartbeat 1.6s ease infinite;
+}
+
+.cierre-footer {
+  margin-top: var(--sp-lg);
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--c-gold-light);
+  font-size: 0.75rem;
+  color: var(--c-dark-soft);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.18); }
+}
