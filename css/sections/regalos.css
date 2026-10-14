@@ -328,6 +328,7 @@
 }
 
 .wish-card-body {
+  margin-top: 6px;
   display: flex;
   position: relative;
   flex: 1 1 45%;
@@ -335,7 +336,6 @@
   min-height: 0;
   flex-direction: column;
   align-items: baseline;
-  justify-content: center;
   padding: clamp(.58rem, 2.8vw, .9rem) clamp(.75rem, 3.6vw, 1rem);
   background: #fffdf8;
 }
