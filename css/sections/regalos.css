@@ -275,8 +275,8 @@
 }
 
 .wishlist-cards-single .wish-card img {
-  flex-basis: 54%;
-  height: 54%;
+  flex-basis: 55%;
+  height: 55%;
 }
 
 .wishlist-closing-note {
@@ -318,9 +318,9 @@
 
 .wish-card img {
   display: block;
-  flex: 0 0 47%;
+  flex: 0 0 55%;
   width: 100%;
-  height: 47%;
+  height: 55%;
   min-height: 0;
   object-fit: cover;
   object-position: center;
@@ -330,7 +330,7 @@
 .wish-card-body {
   display: flex;
   position: relative;
-  flex: 1 1 53%;
+  flex: 1 1 45%;
   min-width: 0;
   min-height: 0;
   flex-direction: column;
@@ -498,9 +498,9 @@
   .wishlist-page-header p { font-size: .5rem; }
   .wishlist-cards { height: calc(100% - 35px); gap: .45rem; }
   .wish-card { border-radius: 13px; }
-  .wish-card img { flex-basis: 40%; height: 40%; }
+  .wish-card img { flex-basis: 55%; height: 55%; }
   .wishlist-cards-single { grid-template-rows: minmax(0, 2.5fr) minmax(0, 1fr); }
-  .wishlist-cards-single .wish-card img { flex-basis: 43%; height: 43%; }
+  .wishlist-cards-single .wish-card img { flex-basis: 55%; height: 55%; }
   .wishlist-closing-note { padding: .28rem .55rem 0; }
   .wishlist-closing-note p { margin-bottom: .15rem; font-size: .66rem; }
   .wishlist-closing-note small { font-size: .5rem; line-height: 1.3; }
