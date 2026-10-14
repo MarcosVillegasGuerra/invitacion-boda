@@ -2,6 +2,8 @@
 .npmrc
 node_modules/
 dist/
+_site/
+.git.broken/
 .env
 .env.*
 !.env.example
