@@ -6,7 +6,20 @@
   var content = document.getElementById('invitation-content');
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
+
+  function resetScrollPosition() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    if (content) {
+      content.querySelectorAll('section').forEach(function resetSection(section) {
+        section.scrollTop = 0;
+      });
+    }
+  }
+
+  resetScrollPosition();
+  window.addEventListener('pageshow', resetScrollPosition);
 
   if (!intro || !button) {
     document.body.classList.remove('invitation-locked');
@@ -19,10 +32,12 @@
   button.addEventListener('click', function openInvitation() {
     if (intro.classList.contains('is-opening')) return;
 
+    resetScrollPosition();
     button.disabled = true;
     intro.classList.add('is-opening');
 
     window.setTimeout(function revealInvitation() {
+      resetScrollPosition();
       intro.classList.add('is-opened');
       document.body.classList.remove('invitation-locked');
       if (content) content.removeAttribute('inert');
