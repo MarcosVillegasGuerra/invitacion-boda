@@ -20,10 +20,10 @@
   pointer-events: none;
 }
 
-.cierre-floral--top-left { top: -1rem; left: -1.5rem; }
-.cierre-floral--top-right { top: -1rem; right: -1.5rem; transform: scaleX(-1); }
-.cierre-floral--bottom-left { bottom: -1rem; left: -1.5rem; transform: scaleY(-1); }
-.cierre-floral--bottom-right { bottom: -1rem; right: -1.5rem; transform: scale(-1); }
+.cierre-floral--top-left { top: 1rem; left: 1rem; }
+.cierre-floral--top-right { top: 1rem; right: 1rem; transform: scaleX(-1); }
+.cierre-floral--bottom-left { bottom: 2rem; left: 1rem; transform: scaleY(-1); }
+.cierre-floral--bottom-right { bottom: 2rem; right: 1rem; transform: scale(-1); }
 
 @media (max-width: 639px) {
   .cierre-floral {

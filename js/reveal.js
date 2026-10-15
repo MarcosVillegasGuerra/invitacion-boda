@@ -84,7 +84,10 @@
       }
 
       sections.forEach(function(section) {
-        var inView = getExposure(section.getBoundingClientRect(), viewportWidth, viewportHeight) >= 0.3;
+        var exposure = getExposure(section.getBoundingClientRect(), viewportWidth, viewportHeight);
+        var wasInView = section.classList.contains('is-in-view');
+        var threshold = wasInView ? 0.15 : 0.3;
+        var inView = exposure >= threshold;
         section.dataset.scrollDirection = scrollDirection;
         section.classList.toggle('is-in-view', inView);
 
