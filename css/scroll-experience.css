@@ -86,6 +86,26 @@ html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > se
     translate .65s cubic-bezier(.22,.72,.24,1);
 }
 
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#countdown #countdown-heading {
+  opacity: 0;
+  translate: 0 var(--countdown-heading-offset, 18px);
+  transition:
+    opacity 1s cubic-bezier(.4,0,.8,.4),
+    translate 1s cubic-bezier(.4,0,.8,.4);
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#countdown[data-scroll-direction="up"] #countdown-heading {
+  --countdown-heading-offset: -18px;
+}
+
+html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#countdown.is-in-view #countdown-heading {
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity .65s cubic-bezier(.22,.72,.24,1),
+    translate .65s cubic-bezier(.22,.72,.24,1);
+}
+
 html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#rsvp {
   background-image:
     linear-gradient(to bottom, var(--c-cream), transparent 14svh),
@@ -219,6 +239,7 @@ html[data-scroll-experience="free"] #invitation-content.scroll-reveal-initializi
   html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section > *,
   html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#dresscode::before,
   html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#dresscode::after,
+  html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready > section#countdown #countdown-heading,
   html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .reveal,
   html[data-scroll-experience="free"] #invitation-content.scroll-reveal-ready .scroll-card {
     transition: none;
