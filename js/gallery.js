@@ -15,6 +15,11 @@
 
   if (!lightbox || !lightboxImage || !items.length) return;
 
+  items.forEach(function preloadPhoto(item) {
+    var image = item.querySelector('img');
+    if (image) image.loading = 'eager';
+  });
+
   gallery.classList.add('gallery-enhanced');
   items.forEach(function revealPhotoWhenReady(item) {
     var image = item.querySelector('img');

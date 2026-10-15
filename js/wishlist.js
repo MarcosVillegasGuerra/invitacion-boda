@@ -10,6 +10,10 @@
 
   if (!carousel || !pages.length) return;
 
+  carousel.querySelectorAll('img').forEach(function preloadWishlistImage(image) {
+    image.loading = 'eager';
+  });
+
   var currentPage = 0;
   var ticking = false;
 
