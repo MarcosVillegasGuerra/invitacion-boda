@@ -35,6 +35,7 @@
     var sections = Array.from(content.children).filter(function(child) {
       return child.tagName === 'SECTION';
     });
+    var sectionsWithLowerExitThreshold = ['galeria', 'rsvp', 'regalos'];
     content.classList.add('scroll-reveal-initializing');
     content.classList.add('scroll-reveal-ready');
     var cards = Array.from(content.querySelectorAll([
@@ -86,7 +87,8 @@
       sections.forEach(function(section) {
         var exposure = getExposure(section.getBoundingClientRect(), viewportWidth, viewportHeight);
         var wasInView = section.classList.contains('is-in-view');
-        var threshold = wasInView ? 0.15 : 0.3;
+        var exitThreshold = sectionsWithLowerExitThreshold.indexOf(section.id) === -1 ? 0.3 : 0.15;
+        var threshold = wasInView ? exitThreshold : 0.3;
         var inView = exposure >= threshold;
         section.dataset.scrollDirection = scrollDirection;
         section.classList.toggle('is-in-view', inView);
